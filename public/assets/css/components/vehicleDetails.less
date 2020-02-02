@@ -1,0 +1,151 @@
+@keyframes animateBackground{
+    from{
+        background: rgba(0, 0, 0, 0);
+
+    }
+    to{
+        background: rgba(0, 0, 0, 0.5);
+    }
+}
+
+.detail {
+    &-wrapper {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 9;
+        overflow: auto;
+        animation: animateBackground;
+        animation-duration: .2s;
+        animation-fill-mode: forwards;
+    }
+
+    &-container {
+        max-width: 1190px;
+        width: 90%;
+        height: auto;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.11);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(.9);
+        border-radius: 6px;
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 40px;
+        margin: 100px 0;
+        opacity: 0;
+
+        transition: opacity .2s, transform .2s;
+        @media screen and (min-width: @responsive-breakpoint) {
+            grid-template-columns: 3fr 1fr;
+            height: 606px;
+        }
+        &--visible{
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        &--close{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: none;
+            background: @ui-color-1;
+            padding: 0;
+            transform: translate(15px, -15px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.11);
+            transition: background .2s;
+            cursor: pointer;
+            &:hover{
+                background: darken(@ui-color-1, 5%);
+            }
+            &:before{
+                content: '+';
+                color: #fff;
+                transform: rotate(45deg);
+                position: absolute;
+                line-height: 0;
+                margin-left: -6px;
+                font-size: 22px;
+                font-weight: 300;
+            }
+        }
+    }
+    &-container_image{
+        background: #eee;
+        margin-right: 40px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 300px;
+        width: 100%;
+
+        @media screen and (min-width: @responsive-breakpoint) {
+            height: auto;
+            width: auto;
+        }
+    }
+    &-container_list{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        color: @text-color;
+        font-size: 18px;
+        align-self: center;
+        
+        li{
+            padding: 10px 0;
+            &:before{
+                margin-bottom: 2px;
+                color: fade(@text-color, 50%);
+                display: block;
+                font-size: 14px;
+                letter-spacing: .8px;
+            }
+        }
+        .detail{
+            &-brand{
+                &:before{
+                    content: 'Merk:';
+                }
+            }
+            &-model{
+                &:before{
+                    content: 'Model:';
+                }
+            }
+            &-price{
+                &:before{
+                    content: 'Prijs:';
+                }
+            }
+            &-milage{
+                &:before{
+                    content: 'Kilometerstand:';
+                }
+            }
+            &-year{
+                &:before{
+                    content: 'Bouwjaar:';
+                }
+            }
+            &-fueltype{
+                &:before{
+                    content: 'Brandstof:';
+                }
+            }
+            &-transmission{
+                &:before{
+                    content: 'Transmissie:';
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "viabovag",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server",
+    "script": "babel ./public/assets/js/script.js --watch --out-file ./public/assets/js/script-compiled.js"
+  },
+  "author": "Freek van der Horst",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^0.12.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4"
+  }
+}

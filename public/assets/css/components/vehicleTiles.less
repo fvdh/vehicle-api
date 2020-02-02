@@ -1,0 +1,112 @@
+#vehicleList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 740px;
+    width: 90%;
+    margin: 0 auto;
+
+    @media screen and (min-width: @responsive-breakpoint) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+.vehicleList {
+    &--item {
+        padding: 10px;
+    }
+
+    &--trigger {
+        padding: 0;
+        width: 100%;
+        border: none;
+        background: none;
+        text-align: left;
+        display: grid;
+        grid-template-columns: 1fr;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .11);
+        border-radius: 3px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform .2s;
+
+        &:hover {
+            transform: scale(1.01);
+
+            .vehicleList--moreInfo {
+                background: darken(@ui-color-1, 3%);
+            }
+        }
+    }
+
+    &--data {
+        background: #fff;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: 1fr 1fr;
+        padding: 32px;
+        color: @text-color;
+        letter-spacing: 0.6px;
+
+        &-brandName {
+            grid-column: 1;
+            grid-row: 1;
+
+            margin: 0;
+            font-size: 16px;
+            font-weight: @font-bold;
+        }
+
+        &-year {
+            grid-column: 1;
+            grid-row: 2;
+
+            font-size: 14px;
+            font-weight: @font-light;
+        }
+
+        &-price {
+            grid-column: 2;
+            grid-row: 1;
+            text-align: right;
+
+            font-size: 16px;
+            font-weight: @font-bold;
+        }
+
+        &-milage {
+            grid-column: 2;
+            grid-row: 2;
+            text-align: right;
+
+            font-size: 14px;
+            font-weight: @font-light;
+        }
+    }
+
+    &--cover {
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+        background-color: #333;
+
+        @media screen and (min-width: @responsive-breakpoint) {
+            height: 230px;
+        }
+    }
+
+    &--moreInfo {
+        background: @ui-color-1;
+        color: #fff;
+        font-size: 16px;
+        font-weight: @font-light;
+        letter-spacing: .6px;
+        padding: 21px 0;
+        text-align: center;
+        transition: background .2s;
+    }
+}
